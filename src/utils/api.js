@@ -1,8 +1,22 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+// Determine default API URL based on environment
+const getDefaultApiUrl = () => {
+  // If environment variable is set, use it
+  if (import.meta.env.VITE_API_BASE_URL) {
+    return import.meta.env.VITE_API_BASE_URL;
+  }
+  // In production (Netlify), default to Render URL
+  if (import.meta.env.MODE === 'production' || import.meta.env.PROD) {
+    return 'https://social-dm-saas.onrender.com/api';
+  }
+  // Local development default
+  return 'http://localhost:5000/api';
+};
+
+const API_BASE_URL = getDefaultApiUrl();
 
 // Get backend base URL (without /api)
 export const getBackendUrl = () => {
-  const apiUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+  const apiUrl = getDefaultApiUrl();
   return apiUrl.replace('/api', '');
 };
 
