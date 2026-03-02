@@ -23,8 +23,13 @@ export const getBackendUrl = () => {
 // Helper to get full image URL
 export const getImageUrl = (imagePath) => {
   if (!imagePath) return '';
-  // If it's already a full URL, return as is
-  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+  // If it's already a full URL (http, https, blob, or data), return as is
+  if (
+    imagePath.startsWith('http://') || 
+    imagePath.startsWith('https://') ||
+    imagePath.startsWith('blob:') ||
+    imagePath.startsWith('data:')
+  ) {
     return imagePath;
   }
   // Remove /server prefix if present
