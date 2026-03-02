@@ -1,7 +1,7 @@
 import ClicksLineChart from "../components/charts/ClicksLineChart";
 import { Link } from "react-router-dom";
 import MaskImage from "../components/MaskImage";
-import LeadsAreaChart from "../components/charts/LeadsAreaChart.JSX";
+import LeadsAreaChart from "../components/charts/LeadsAreaChart";
 import ClicksLeadsCombinedChart from "../components/charts/ClicksLeadsCombinedChart";
 import PlatformDonut from "../components/charts/PlatformDonut";
 import PlatformLeadsBar from "../components/charts/PlatformLeadsBar";

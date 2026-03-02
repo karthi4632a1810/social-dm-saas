@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import PageViewsVisitorsLine from "../components/charts/PageViewsVisitorsLine";
 import ClicksLineChart from "../components/charts/ClicksLineChart";
-import LeadsAreaChart from "../components/charts/LeadsAreaChart.JSX";
+import LeadsAreaChart from "../components/charts/LeadsAreaChart";
 import { DatePicker, Grid } from "antd";
 import dayjs from "dayjs";
 const { RangePicker } = DatePicker;
