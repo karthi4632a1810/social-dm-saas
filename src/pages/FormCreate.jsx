@@ -29,7 +29,7 @@ export default function FormCreate() {
         { value: "text", label: "Text" },
         { value: "email", label: "Email" },
         { value: "phone", label: "Phone" },
-        { value: "textarea", label: "Textarea" },
+        // { value: "textarea", label: "Textarea" },
         // { value: "select", label: "Select" },
         // { value: "checkbox", label: "Checkbox" },
         // { value: "radio", label: "Radio" }
