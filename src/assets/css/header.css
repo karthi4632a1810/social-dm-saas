@@ -1,0 +1,95 @@
+.header-sec-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background: linear-gradient(180deg, rgba(var(248, 247, 250), 70%) 44%, rgba(var(248, 247, 250), 43%) 73%, rgba(var(248, 247, 250), 0%));
+    backdrop-filter: blur(5px);
+}
+
+
+#header-sec .profiler-wrapper .profile-image-wrapper:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 12px;
+    height: 12px;
+    background-color: var(--notification);
+    border-radius: 100vh;
+    border: 2px solid var(--bg-w);
+}
+
+#header-sec .notification-icon-wrapper:after {
+    content: "";
+    position: absolute;
+    right: 20%;
+    top: 20%;
+    width: 10px;
+    height: 10px;
+    background-color: var(--notification-1);
+    border-radius: 100vh;
+    border: 2px solid var(--bg-w);
+}
+
+#header-sec .mode-change.active {
+    background-color: color-mix(in srgb, var(--primary-color) 20%, rgba(255, 255, 255, 0));
+}
+
+#header-sec .mode-change.active .maskimage {
+    background-color: var(--primary-color) !important;
+}
+
+#header-sec .mode-change.active span {
+    color: var(--primary-color);
+}
+
+#header-sec .notification-content-wrapper-parent {
+    max-height: 350px;
+    overflow-y: auto;
+
+    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) transparent;
+}
+
+/* Chrome, Edge, Safari */
+#header-sec .notification-content-wrapper-parent::-webkit-scrollbar {
+    width: 6px;
+}
+
+#header-sec .notification-content-wrapper-parent::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#header-sec .notification-content-wrapper-parent::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}
+
+#header-sec .notification-count {
+    background-color: color-mix(in srgb, var(--primary-color) 20%, rgba(255, 255, 255, 0));
+}
+
+#header-sec .notification-content.new::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 100vh;
+    right: 10px;
+    top: 20%;
+}
+
+#header-sec .notification-content-wrapper .notification-cut {
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: .4s;
+}
+
+#header-sec .notification-content-wrapper:hover .notification-cut {
+    pointer-events: all;
+    opacity: 1;
+    transform: translateY(0);
+}

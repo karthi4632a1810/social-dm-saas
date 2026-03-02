@@ -1,0 +1,219 @@
+ .custom-from-wrapper {
+     background: linear-gradient(135deg, #ae107c 0%, #0be2f5 100%);
+     font-family: "Segoe UI", Arial, sans-serif;
+ }
+
+ .glass-card {
+     width: 100%;
+     max-width: 460px;
+     padding: 28px;
+     border-radius: 24px;
+     background: rgba(0, 0, 0, 0.18);
+     backdrop-filter: blur(16px);
+     -webkit-backdrop-filter: blur(16px);
+     border: 1px solid rgba(255, 255, 255, 0.35);
+     box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+     position: relative;
+     overflow: hidden;
+ }
+
+ .glass-card::before {
+     content: "";
+     position: absolute;
+     top: -50%;
+     left: -50%;
+     width: 200%;
+     height: 200%;
+     background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+     transform: rotate(25deg);
+ }
+
+ .header {
+     text-align: center;
+     margin-bottom: 24px;
+     position: relative;
+ }
+
+ .header .badge {
+     display: inline-flex;
+     align-items: center;
+     gap: 6px;
+     padding: 6px 14px;
+     border-radius: 20px;
+     background: rgba(255, 255, 255, 0.25);
+     font-size: 12px;
+     margin-bottom: 10px;
+ }
+
+ .header h2 {
+     margin: 10px 0 6px;
+     font-size: 26px;
+ }
+
+ .header p {
+     margin: 0;
+     font-size: 14px;
+     opacity: 0.95;
+ }
+
+ .timer {
+     margin-top: 14px;
+     display: inline-flex;
+     align-items: center;
+     gap: 6px;
+     padding: 8px 14px;
+     border-radius: 14px;
+     background: rgba(245, 158, 11, 0.25);
+     color: #fff7cc;
+     font-size: 13px;
+     font-weight: bold;
+ }
+
+ .form-group {
+     position: relative;
+     margin-bottom: 18px;
+ }
+
+ .form-group .icon {
+     position: absolute;
+     top: 50%;
+     left: 14px;
+     transform: translateY(-50%);
+     font-size: 20px;
+     color: #d1fae5;
+ }
+
+ .form-group input {
+     width: 100%;
+     padding: 16px 16px 16px 44px;
+     border-radius: 14px;
+     border: 1px solid rgba(255, 255, 255, 0.4);
+     background: rgba(255, 255, 255, 0.2);
+     color: #fff;
+     font-size: 14px;
+     outline: none;
+     transition: 0.2s;
+ }
+
+ .form-group input:focus {
+     border-color: #34d399;
+     box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.35);
+ }
+
+ .form-group label {
+     position: absolute;
+     top: 50%;
+     left: 44px;
+     transform: translateY(-50%);
+     font-size: 13px;
+     color: #e5e7eb;
+     pointer-events: none;
+     transition: 0.2s;
+ }
+
+ .form-group input:focus+label,
+ .form-group input:not(:placeholder-shown)+label {
+     top: 6px;
+     font-size: 11px;
+     color: #a7f3d0;
+ }
+
+ .cta-btn {
+     width: 100%;
+     margin-top: 10px;
+     padding: 16px;
+     border: none;
+     border-radius: 16px;
+     background: var(--btn-cus-color);
+     font-size: 16px;
+     font-weight: bold;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     gap: 8px;
+     transition: 0.2s;
+ }
+
+ .cta-btn:hover {
+     transform: translateY(-1px);
+     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+ }
+
+ .benefits {
+     margin-top: 22px;
+     padding-top: 16px;
+     border-top: 1px dashed rgba(255, 255, 255, 0.4);
+ }
+
+ .benefits h4 {
+     margin: 0 0 12px;
+     font-size: 16px;
+     display: flex;
+     align-items: center;
+     gap: 6px;
+ }
+
+ .benefits ul {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+ }
+
+ .benefits li {
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     margin-bottom: 10px;
+     font-size: 14px;
+ }
+
+ .benefits .check {
+     color: #34d399;
+     font-size: 20px;
+ }
+
+ /* New styled discount footer */
+ /* Compact offer grid */
+ .offer-grid {
+     margin-top: 18px;
+     display: grid;
+     grid-template-columns: 1fr 1fr;
+     gap: 10px;
+ }
+
+ .offer-item {
+     padding: 10px 12px;
+     border-radius: 12px;
+     background: rgba(255, 255, 255, 0.22);
+     border: 1px solid rgba(255, 255, 255, 0.35);
+     display: flex;
+     align-items: center;
+     gap: 8px;
+     font-size: 13px;
+     font-weight: 600;
+     color: #ffffff;
+     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+ }
+
+ .offer-item .iconify {
+     font-size: 18px;
+     color: #34d399;
+ }
+
+ .offer-item strong {
+     color: #fef3c7;
+ }
+
+
+ .privacy {
+     margin-top: 10px;
+     font-size: 11px;
+     opacity: 0.85;
+     text-align: center;
+ }
+
+ .offer-footer {
+     text-align: center;
+     margin-top: 15px;
+ }
