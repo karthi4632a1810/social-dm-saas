@@ -2,6 +2,7 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 import { uploadAvatar } from "../middleware/upload.js";
+import { SUBSCRIPTION_PLANS } from '../config/subscriptionPlans.js';
 import fs from "fs";
 import path from "path";
 
@@ -43,12 +44,19 @@ router.post('/register', async (req, res) => {
       });
     }
 
-    // Create user
+    // Create user with free trial
     const user = new User({
       name,
       email,
       password,
-      role: role || 'user'
+      role: role || 'user',
+      subscription: {
+        plan: 'trial',
+        status: 'trial',
+        trialEndsAt: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000), // 14 days
+        currency: 'USD'
+      },
+      limits: SUBSCRIPTION_PLANS.trial.limits
     });
 
     await user.save();

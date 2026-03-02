@@ -9,6 +9,7 @@ import authRoutes from './routes/authRoutes.js';
 import formRoutes from './routes/formRoutes.js';
 import contactCardRoutes from './routes/contactCardRoutes.js';
 import notificationRoutes from './routes/notificationRoutes.js';
+import paymentRoutes from './routes/paymentRoutes.js';
 import { protect } from './middleware/auth.js'; // adjust path if needed
 
 // Load environment variables
@@ -36,6 +37,7 @@ app.use('/api/analytics', analyticsRoutes);
 app.use('/api/forms', formRoutes);
 app.use('/api/contact-cards', contactCardRoutes);
 app.use('/api/notifications', protect, notificationRoutes);
+app.use('/api/payments', paymentRoutes);
 app.use("/uploads", express.static("uploads"));
 
 // Health check route

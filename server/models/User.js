@@ -37,6 +37,65 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true
   },
+  // Subscription fields
+  subscription: {
+    plan: {
+      type: String,
+      enum: ['free', 'trial', 'basic', 'pro', 'enterprise'],
+      default: 'trial'
+    },
+    status: {
+      type: String,
+      enum: ['active', 'trial', 'expired', 'cancelled', 'past_due'],
+      default: 'trial'
+    },
+    trialEndsAt: {
+      type: Date,
+      default: function() {
+        return new Date(Date.now() + 14 * 24 * 60 * 60 * 1000); // 14 days
+      }
+    },
+    currentPeriodEnd: Date,
+    cancelAtPeriodEnd: {
+      type: Boolean,
+      default: false
+    },
+    currency: {
+      type: String,
+      enum: ['USD', 'INR'],
+      default: 'USD'
+    }
+  },
+  // Payment gateway info
+  stripe: {
+    customerId: String,
+    subscriptionId: String,
+    priceId: String
+  },
+  razorpay: {
+    customerId: String,
+    subscriptionId: String,
+    planId: String
+  },
+  // Limits based on plan
+  limits: {
+    maxLinks: {
+      type: Number,
+      default: 10
+    },
+    maxForms: {
+      type: Number,
+      default: 5
+    },
+    maxContactCards: {
+      type: Number,
+      default: 3
+    },
+    maxLeads: {
+      type: Number,
+      default: 100
+    }
+  },
   createdAt: {
     type: Date,
     default: Date.now
