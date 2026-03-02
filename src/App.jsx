@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 import Login from "./pages/Login";
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -50,6 +50,7 @@ function App() {
           <DashboardLayout />
         </ProtectedRoute>
       }>
+        <Route index element={<Navigate to="/analytics" replace />} />
         <Route path="analytics" element={<Dashboard />} />
         <Route path="short-links" element={<ShortLinks />} />
         <Route path="manage-short-links" element={<ManageShortLinks />} />
