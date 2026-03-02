@@ -34,7 +34,7 @@ export default function ManageShortLinks() {
     const screens = useBreakpoint();
     const isMobile = !screens.md;
     const [currentPage, setCurrentPage] = useState(Number(searchParams.get("page")) || 1);
-    const [itemsPerPage, setItemsPerPage] = useState(3);
+    const [itemsPerPage, setItemsPerPage] = useState(6);
     const [pagination, setPagination] = useState({
         page: 1,
         limit: 10,
