@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import MaskImage from "../components/MaskImage";
 import { useState, useEffect, useRef } from "react";
-import { authAPI, getUser, notificationAPI, formatMonthYear, formatRelativeTime, capitalizeWords } from "../utils/api";
+import { authAPI, getUser, notificationAPI, formatMonthYear, formatRelativeTime, capitalizeWords, getImageUrl } from "../utils/api";
 import { buildNotificationUI } from "../utils/notificationUI";
 import { useSearchParams } from "react-router-dom";
 import { showToast } from "../utils/toast";
@@ -204,7 +204,7 @@ export default function Profile() {
 
     // profile image
     const [avatarFile, setAvatarFile] = useState(null);
-    const [avatarPreview, setAvatarPreview] = useState(user?.avatar ? "/server" + user.avatar : "");
+    const [avatarPreview, setAvatarPreview] = useState(user?.avatar ? getImageUrl(user.avatar) : "");
 
     const handleAvatarChange = async (e) => {
         const file = e.target.files[0];
@@ -228,7 +228,7 @@ export default function Profile() {
                 const updatedUser = { ...getUser(), avatar: res.data.avatar };
                 localStorage.setItem("user", JSON.stringify(updatedUser));
 
-                setAvatarPreview("server/" + res.data.avatar);
+                setAvatarPreview(getImageUrl(res.data.avatar));
                 window.location.reload();
             } else {
                 showToast(res.message || "Upload failed", "error");
@@ -284,7 +284,7 @@ export default function Profile() {
                                 <img
                                     src={avatarPreview
                                         ? avatarPreview
-                                        : "server/uploads/default-avatar.jpg"}
+                                        : getImageUrl("/uploads/default-avatar.jpg")}
                                     className="absolute w-full h-full left-0 top-0 object-cover"
                                     alt="avatar"
                                 />

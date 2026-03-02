@@ -1,9 +1,11 @@
+import { getImageUrl } from "./api";
+
 export const buildNotificationUI = (n) => {
     const actorName = n.actorId?.name || "System";
 
     let title = "Notification";
     let message = n.message || "You have a new notification";
-    let image = "server/uploads/default-avatar.jpg";
+    let image = getImageUrl("/uploads/default-avatar.jpg");
     let link = "";
 
     const source = n.meta?.source?.toLowerCase();
@@ -17,7 +19,7 @@ export const buildNotificationUI = (n) => {
         const src = n.actorId?.avatar;
         title = actorName;
         message = `${actorName} created a new form`;
-        image = `${src ? `/server/${src}` : "server/uploads/default-avatar.jpg"}`
+        image = src ? getImageUrl(src) : getImageUrl("/uploads/default-avatar.jpg");
         link = `/manage-forms?search=${n.refId}`
     }
 
@@ -26,7 +28,7 @@ export const buildNotificationUI = (n) => {
         const src = n.actorId?.avatar;
         title = actorName;
         message = `${actorName} created a new contact`;
-        image = `${src ? `/server/${src}` : "server/uploads/default-avatar.jpg"}`
+        image = src ? getImageUrl(src) : getImageUrl("/uploads/default-avatar.jpg");
         link = `/manage-cards?search=${n.refId}`
     }
 
@@ -48,7 +50,7 @@ export const buildNotificationUI = (n) => {
 
         title = actorName;
         message = `${actorName} created a new link for ${platform}`;
-        image = `${src ? `/server/${src}` : "server/uploads/default-avatar.jpg"}`
+        image = src ? getImageUrl(src) : getImageUrl("/uploads/default-avatar.jpg");
         link = `/manage-short-links?search=${n.refId}`
     }
 

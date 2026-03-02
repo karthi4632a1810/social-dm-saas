@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import MaskImage from "../components/MaskImage";
-import { contactCardAPI } from "../utils/api";
+import { contactCardAPI, getImageUrl } from "../utils/api";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { showToast } from "../utils/toast";
 
@@ -16,7 +16,7 @@ export default function ProfileCard() {
 
     const [loading, setLoading] = useState(false);
     const [contactCard, setContactCard] = useState({
-        image: "/server/uploads/contact.png",
+        image: "/uploads/contact.png",
         fullName: "Rahul",
         role: "sales executive",
         content: "Contact Me to Get the Best Offer",
@@ -49,7 +49,7 @@ export default function ProfileCard() {
                     const card = response.data;
                     console.log(card)
                     setContactCard({
-                        image: "/server" + card.image,
+                        image: card.image,
                         fullName: card.fullName,
                         role: card.role,
                         content: card.content,
@@ -156,7 +156,7 @@ export default function ProfileCard() {
                 if (uploadRes.success) {
                     setContactCard((prev) => ({
                         ...prev,
-                        image: "/server" + uploadRes.data.image
+                        image: uploadRes.data.image
                     }));
 
                 }
@@ -239,7 +239,7 @@ export default function ProfileCard() {
                                 <div className="flex  flex-col w-[130px] gap-2 shrink-0 aspect-square  relative ">
                                     <div className="card-image-wrapper border-[2px] border-[var(--border)] shadow-[0px_0px_10px_rgba(0,0,0,0.1)] overflow-hidden rounded-[5px]">
                                         <img
-                                            src={contactCard.image}
+                                            src={getImageUrl(contactCard.image)}
                                             className=" w-full h-full left-0 top-0 object-cover"
                                             alt="avatar"
                                         />
@@ -449,7 +449,7 @@ export default function ProfileCard() {
                                 <div className="flex  flex-col w-[250px] gap-2 shrink-0 aspect-square">
                                     <div className="card-image-wrapper w-full h-full border-[1px] border-[var(--text-darken)] relative  rounded-[9vh]">
                                         <img
-                                            src={contactCard.image}
+                                            src={getImageUrl(contactCard.image)}
                                             className=" w-full h-full  left-0 top-0 object-cover rounded-[9vh]"
                                             alt="avatar"
                                         />

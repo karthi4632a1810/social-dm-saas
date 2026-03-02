@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MaskImage from "../components/MaskImage";
-import { contactCardAPI, capitalizeWords } from "../utils/api";
+import { contactCardAPI, capitalizeWords, getImageUrl } from "../utils/api";
 import { showToast } from "../utils/toast";
 
 export default function DeletedCards() {
@@ -155,7 +155,7 @@ export default function DeletedCards() {
                                     <div className="flex min-w-0">
                                         <div className="card-image-wrapper w-[200px] aspect-square border-[2px] border-[var(--border)] bg-[var(--bg-light)] shadow-[0px_0px_10px_rgba(0,0,0,0.06)] overflow-hidden rounded-[5px]">
                                             <img
-                                                src={"/server" + card.image}
+                                                src={getImageUrl(card.image)}
                                                 className=" w-full h-full left-0 top-0 object-cover"
                                                 alt="avatar"
                                             />

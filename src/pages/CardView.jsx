@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { contactCardAPI } from "../utils/api";
+import { contactCardAPI, getImageUrl } from "../utils/api";
 import { useParams, useSearchParams } from "react-router-dom";
 import MaskImage from "../components/MaskImage";
 
@@ -85,7 +85,7 @@ export default function ProfileCard() {
                 <div className="flex  flex-col w-[250px] gap-2 shrink-0 aspect-square">
                     <div className="card-image-wrapper w-full h-full border-[1px] border-[var(--text-darken)] relative  rounded-[9vh]">
                         <img
-                            src={"/server" + cardData.image}
+                            src={getImageUrl(cardData.image)}
                             className=" w-full h-full  left-0 top-0 object-cover rounded-[9vh]"
                             alt="image"
                         />

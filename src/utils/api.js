@@ -1,4 +1,24 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+
+// Get backend base URL (without /api)
+export const getBackendUrl = () => {
+  const apiUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+  return apiUrl.replace('/api', '');
+};
+
+// Helper to get full image URL
+export const getImageUrl = (imagePath) => {
+  if (!imagePath) return '';
+  // If it's already a full URL, return as is
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+    return imagePath;
+  }
+  // Remove /server prefix if present
+  const cleanPath = imagePath.startsWith('/server') ? imagePath.replace('/server', '') : imagePath;
+  // Ensure path starts with /
+  const finalPath = cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`;
+  return `${getBackendUrl()}${finalPath}`;
+};
 
 // Get token from localStorage
 const getToken = () => {

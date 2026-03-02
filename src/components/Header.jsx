@@ -3,7 +3,7 @@ import MaskImage from "../components/MaskImage";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { sideMenu } from "../data/SideMenuData.jsx";
-import { authAPI, getUser, notificationAPI, formatRelativeTime, capitalizeWords } from "../utils/api";
+import { authAPI, getUser, notificationAPI, formatRelativeTime, capitalizeWords, getImageUrl } from "../utils/api";
 import { buildNotificationUI } from "../utils/notificationUI";
 
 function Header({ setMobileMenuActive }) {
@@ -12,7 +12,7 @@ function Header({ setMobileMenuActive }) {
     const [notifyData, setNotifyData] = useState([])
     const [name, setName] = useState(user?.name || "");
     const [role, setRole] = useState(user?.role || "");
-    const [avatarPreview, setAvatarPreview] = useState(user?.avatar ? "/server/" + user.avatar : "");
+    const [avatarPreview, setAvatarPreview] = useState(user?.avatar ? getImageUrl(user.avatar) : "");
 
     useEffect(() => {
         setUser(getUser());
@@ -379,13 +379,13 @@ function Header({ setMobileMenuActive }) {
                     </div>
                     <div ref={profileRef} className="profiler-wrapper md:relative rounded-full ms-1 text-[16px]">
                         <div onClick={() => setOpenDropdown(prev => prev === 'profile' ? null : 'profile')} className="profile-image-wrapper w-[40px] h-[40px] shadow-[0px_0px_10px_rgba(0,0,0,0.1)] bg-[var(--bg-w)] rounded-full  relative cursor-pointer">
-                            <img src={avatarPreview || "server/uploads/default-avatar.jpg"} className="absolute w-full h-full left-0 top-0 object-cover rounded-full" alt="" />
+                            <img src={avatarPreview || getImageUrl("/uploads/default-avatar.jpg")} className="absolute w-full h-full left-0 top-0 object-cover rounded-full" alt="" />
                         </div>
                         <div className={`${openDropdown === 'profile' ? 'block' : 'hidden'} profile-sec-wrapper shadow-[0px_0px_10px_rgba(0,0,0,0.1)] md:w-[220px] w-full bg-[var(--bg-w)]  flex flex-col gap-1 absolute right-0 top-[120%] md:top-[150%] rounded-[5px] py-2 text-[16px] text-[var(--text-dark)]`}>
                             <div className="px-2">
                                 <div className={`profile-content-wrapper flex items-center gap-3 py-2 px-4  cursor-pointer  rounded-[6px] bg-[var(--bg-w)] hover:bg-[var(--hover)] hover:shadow-[0px_0px_1px_rgba(0,0,0,0.1)]`}>
                                     <div className="profile-image-wrapper w-[45px] h-[45px] shadow-[0px_0px_10px_rgba(0,0,0,0.1)] bg-[var(--bg-w)] rounded-full  relative cursor-pointer">
-                                        <img src={avatarPreview || "server/uploads/default-avatar.jpg"} className="absolute w-full h-full left-0 top-0 object-cover rounded-full" alt="" />
+                                        <img src={avatarPreview || getImageUrl("/uploads/default-avatar.jpg")} className="absolute w-full h-full left-0 top-0 object-cover rounded-full" alt="" />
                                     </div>
                                     <div className="profile-content dd">
                                         <h2 className="text-[var(--text-dark)] font-semibold">{capitalizeWords(name)}</h2>
