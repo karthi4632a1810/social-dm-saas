@@ -74,4 +74,8 @@ app.use((req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+  console.log('==> Your service is live 🚀');
+  if (process.env.RENDER_EXTERNAL_URL) {
+    console.log(`==> Available at your primary URL ${process.env.RENDER_EXTERNAL_URL}`);
+  }
 });
