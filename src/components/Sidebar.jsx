@@ -17,7 +17,6 @@ export default function Sidebar({ MobileMenuActive, setMobileMenuActive }) {
     const [activeSubMenu, setActiveSubMenu] = useState(null);
     const [activeLink, setActiveLink] = useState(null);
 
-
     const [openMenu, setOpenMenu] = useState(null);
     const [lastOpenMenu, setLastOpenMenu] = useState(null);
     const isExpanded = menuActive || hoverEnabled;

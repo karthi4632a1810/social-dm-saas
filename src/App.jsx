@@ -26,14 +26,14 @@ import ShortLinkStats from "./pages/ShortLinksStats";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth", // remove if you hate smoothness
-    });
-  }, [pathname]);
+  // const { pathname } = useLocation();
+  // useEffect(() => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     left: 0,
+  //     behavior: "smooth", // remove if you hate smoothness
+  //   });
+  // }, [pathname]);
   return (
     <Routes>
       {/* Public */}

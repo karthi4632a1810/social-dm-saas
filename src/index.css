@@ -104,6 +104,7 @@ html.dark {
 
 .main-section-wrapper {
   overflow-y: auto;
+  height: 100vh;
   scrollbar-width: thin;
   scrollbar-color: var(--primary-color) transparent;
 }

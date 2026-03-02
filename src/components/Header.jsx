@@ -252,7 +252,7 @@ function Header({ setMobileMenuActive }) {
                     <label htmlFor="search-header" className=" hidden items-center sm:flex cursor-pointer ">
                         <MaskImage url="/icons/search.svg" w="1em" h="1em" bg="var(--text-2)" />
                     </label>
-                    <input id="search-header" onFocus={() => setOpenDropdown(prev => prev === 'search' ? null : 'search')} onChange={(e) => searchFilter(e.target.value)} type="text" placeholder={isMobile ? "Search here..." : "Search  [CTRL + K]"} className="header-search-input font-medium ms-2 outline-none bg-[var(--bg-w)] text-[var(--text-dark)] text-[.8em] w-full" />
+                    <input id="search-header" onFocus={() => setOpenDropdown('search')} onChange={(e) => searchFilter(e.target.value)} type="text" placeholder={isMobile ? "Search here..." : "Search  [CTRL + K]"} className="header-search-input font-medium ms-2 outline-none bg-[var(--bg-w)] text-[var(--text-dark)] text-[.8em] w-full" />
                     <div className={`${openDropdown === 'search' ? 'block' : 'hidden'} shadow-[0px_0px_10px_rgba(0,0,0,0.1)]  text-[17px] search-result-wrapper md:w-[320px] p-3 rounded-[5px] bg-[var(--bg-w)] w-full absolute left-0 top-[120%] md:top-[150%]`}>
                         {filteredMenu.length > 0 ? (
                             filteredMenu.map((data, index) => (
