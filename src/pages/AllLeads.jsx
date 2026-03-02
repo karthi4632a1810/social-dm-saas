@@ -82,7 +82,7 @@ export default function AllLeads() {
         { key: "createdAt", label: "Created at", icon: "/icons/d-t.svg", color: "#fd7e14" }
     ];
 
-    const [itemsPerPage, setItemsPerPage] = useState(3);
+    const [itemsPerPage, setItemsPerPage] = useState(10);
     const [pagination, setPagination] = useState({
         page: 1,
         limit: 10,
